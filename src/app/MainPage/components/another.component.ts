@@ -5,8 +5,8 @@ import { OnInit, AfterContentInit, OnChanges } from '@angular/core/src/metadata/
     selector: 'main-page',
     template: 
     `
-    <h2 class="main-page">Main Page Component</h2>
-    <a [routerLink]="['another']">Go to Another Page</a>
+    <h2 class="main-page">Another Page Component</h2>
+    <a [routerLink]="['']">Go to Main Page</a><br>
     `,
     styles: [
         `.main-page:hover {
@@ -19,25 +19,26 @@ import { OnInit, AfterContentInit, OnChanges } from '@angular/core/src/metadata/
         `
     ]
 })
-export class MainPageComponent implements OnInit, AfterContentInit, AfterViewInit, OnChanges{
+export class AnotherComponent implements OnInit, AfterContentInit, AfterViewInit, OnChanges{
+    someInput: any;
     constructor(){
-        console.log("Main Page Component Created.");
+        console.log("Another Page Component Created.");
     }
 
     ngOnChanges(){
-        console.log("Main Page - On Changes.");
+        console.log("Another Page - On Changes.");
     }
 
     ngOnInit(){
-        console.log("Main page - On init");
+        console.log("Another page - On init");
     }
 
     ngAfterViewInit(){
-        console.log("Main page - after view init");
+        console.log("Another page - after view init");
     }
 
     ngAfterContentInit(){
-        console.log("Main page - after content init");
+        console.log("Another page - after content init");
     }
 
 }
