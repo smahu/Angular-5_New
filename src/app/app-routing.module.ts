@@ -1,10 +1,12 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { MainPageComponent } from "./MainPage/components/main-page.component";
 
 const routes: Routes = [
   {
     path: "",
-    loadChildren: "./MainPage/main-page.module#MainPageModule"
+    component: MainPageComponent
+    //loadChildren: "./MainPage/main-page.module#MainPageModule"
   }
 ];
 
