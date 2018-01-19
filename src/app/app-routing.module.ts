@@ -5,8 +5,8 @@ import { MainPageComponent } from "./MainPage/components/main-page.component";
 const routes: Routes = [
   {
     path: "",
-    component: MainPageComponent
-    //loadChildren: "./MainPage/main-page.module#MainPageModule"
+    //component: MainPageComponent
+    loadChildren: "./MainPage/main-page.module#MainPageModule"  //For lazy Loading
   }
 ];
 
