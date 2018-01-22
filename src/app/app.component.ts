@@ -14,6 +14,16 @@ export class AppComponent implements OnInit, AfterContentInit, AfterViewInit, On
     routerSubscription;
   constructor(private appLoader: AppLoaderService, private router: Router ) {
     console.log("App Comp - created");
+    this.routerSubscription = this.router.events.subscribe(event => {
+        if (event instanceof NavigationStart) {
+          this.appLoader.open();
+        } else if (
+          event instanceof NavigationEnd ||
+          event instanceof NavigationCancel
+        ) {
+          this.appLoader.close();
+        }
+      });
   }
   ngOnChanges(){
     console.log("App Comp - On Changes.");
@@ -23,25 +33,16 @@ ngOnInit(){
     console.log("App Comp - On init");
 }
 
-// ngAfterViewInit(){
-//     console.log("App Comp - after view init");
-// }
+ngAfterViewInit(){
+    console.log("App Comp - after view init");
+}
 
 ngAfterContentInit(){
     console.log("App Comp - after content init");
 }
-ngAfterViewInit() {
-    this.routerSubscription = this.router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        this.appLoader.open();
-      } else if (
-        event instanceof NavigationEnd ||
-        event instanceof NavigationCancel
-      ) {
-        this.appLoader.close();
-      }
-    });
-  }
+// ngAfterViewInit() {
+    
+//   }
 
   onDestroy() {
     this.routerSubscription.unsubscribe();
