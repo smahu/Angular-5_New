@@ -16,6 +16,7 @@ import { HeaderComponent } from './shared-contents/components/app-header/header.
 import { FooterComponent } from './shared-contents/components/app-footer/footer.component';
 import {MatProgressSpinnerModule, MatDialogModule, MatDialog} from '@angular/material';
 import { OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
+import { CustomLoaderComponent } from './shared-contents/components/custom-css-loader/custom-loader.component';
 
 
 @NgModule({
@@ -31,14 +32,16 @@ import { OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    AppLoaderComponent
+    AppLoaderComponent,
+    CustomLoaderComponent
   ],
   exports: [AppCommonModule],
   providers: [
     AppLoaderService
   ],
   entryComponents: [
-    AppLoaderComponent],
+    AppLoaderComponent,
+    CustomLoaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
