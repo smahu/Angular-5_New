@@ -11,7 +11,7 @@ import { AppRoutingModule } from "./app-routing.module";
 
 import { HeaderComponent } from './shared-contents/components/app-header/header.component';
 import { FooterComponent } from './shared-contents/components/app-footer/footer.component';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { FooterComponent } from './shared-contents/components/app-footer/footer.
     BrowserModule,
     AppCommonModule,
     AppRoutingModule,
+    MatProgressSpinnerModule
   ],
   exports: [AppCommonModule],
   providers: [
