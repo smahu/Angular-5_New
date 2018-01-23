@@ -1,5 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { OnInit, AfterContentInit, OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'main-page',
@@ -19,26 +18,5 @@ import { OnInit, AfterContentInit, OnChanges } from '@angular/core/src/metadata/
         `
     ]
 })
-export class AnotherComponent implements OnInit, AfterContentInit, AfterViewInit, OnChanges{
-    someInput: any;
-    constructor(){
-        console.log("Another Page Component Created.");
-    }
-
-    ngOnChanges(){
-        console.log("Another Page - On Changes.");
-    }
-
-    ngOnInit(){
-        console.log("Another page - On init");
-    }
-
-    ngAfterViewInit(){
-        console.log("Another page - after view init");
-    }
-
-    ngAfterContentInit(){
-        console.log("Another page - after content init");
-    }
-
+export class AnotherComponent{
 }

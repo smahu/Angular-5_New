@@ -1,5 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { OnInit, AfterContentInit, OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'main-page',
@@ -19,25 +18,4 @@ import { OnInit, AfterContentInit, OnChanges } from '@angular/core/src/metadata/
         `
     ]
 })
-export class MainPageComponent implements OnInit, AfterContentInit, AfterViewInit, OnChanges{
-    constructor(){
-        console.log("Main Page Component Created.");
-    }
-
-    ngOnChanges(){
-        console.log("Main Page - On Changes.");
-    }
-
-    ngOnInit(){
-        console.log("Main page - On init");
-    }
-
-    ngAfterViewInit(){
-        console.log("Main page - after view init");
-    }
-
-    ngAfterContentInit(){
-        console.log("Main page - after content init");
-    }
-
-}
+export class MainPageComponent{}

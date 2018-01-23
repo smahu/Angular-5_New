@@ -41,7 +41,9 @@ import { CustomLoaderComponent } from './shared-contents/components/custom-css-l
   ],
   entryComponents: [
     AppLoaderComponent,
-    CustomLoaderComponent],
+    CustomLoaderComponent,
+    MatSpinner
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

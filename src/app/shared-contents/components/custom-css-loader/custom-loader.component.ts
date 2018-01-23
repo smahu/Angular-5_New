@@ -68,8 +68,4 @@ import {Component} from '@angular/core';
       }`
   ]
 })
-export class CustomLoaderComponent {
-    constructor() {
-        console.log('custom loader component called');
-    }
-}
+export class CustomLoaderComponent {}

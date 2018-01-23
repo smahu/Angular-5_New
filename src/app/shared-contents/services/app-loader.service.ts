@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { AppLoaderComponent } from './../components/app-loader/app-loader.component';
-
+import { } from '@angular/core/src/render3';
 
 interface AppLoaderConfig {
     panelClass?: string;
@@ -21,11 +21,11 @@ export class AppLoaderService {
   overlayRef;
   constructor(private overlay: Overlay) { }
   
-  open(config: AppLoaderConfig = {}) {
+  open(config: AppLoaderConfig = {}, arg) {
     console.log("Loading Started...!!");
     const dialogConfig = { ...DEFAULT_CONFIG, ...config };
     this.overlayRef =  this.createOverlay(dialogConfig);
-    const loaderPortal = new ComponentPortal(AppLoaderComponent);
+    const loaderPortal = new ComponentPortal(arg);
     this.overlayRef.attach(loaderPortal);
   }
 
