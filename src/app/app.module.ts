@@ -17,6 +17,7 @@ import { FooterComponent } from './shared-contents/components/app-footer/footer.
 import {MatProgressSpinnerModule, MatDialogModule, MatDialog} from '@angular/material';
 import { OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 import { CustomLoaderComponent } from './shared-contents/components/custom-css-loader/custom-loader.component';
+import { UserAuthService } from './shared-contents/services/user-auth.service';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CustomLoaderComponent } from './shared-contents/components/custom-css-l
   ],
   exports: [AppCommonModule],
   providers: [
-    AppLoaderService
+    AppLoaderService,
+    UserAuthService
   ],
   entryComponents: [
     AppLoaderComponent,

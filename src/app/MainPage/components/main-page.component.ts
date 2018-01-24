@@ -1,3 +1,4 @@
+import { UserAuthService } from './../../shared-contents/services/user-auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
     `
     <h2 class="main-page">Main Page Component</h2>
     <a [routerLink]="['another']">Go to Another Page</a>
+    <b>{{_userAuthService.getSomeMsg()}}</b>
     `,
     styles: [
         `.main-page:hover {
@@ -18,4 +20,12 @@ import { Component } from '@angular/core';
         `
     ]
 })
-export class MainPageComponent{}
+export class MainPageComponent{
+
+    _userAuthService: UserAuthService;
+    constructor(private userAuthService: UserAuthService){
+        this._userAuthService = userAuthService;
+    }
+
+
+}
