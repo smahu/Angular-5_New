@@ -1,15 +1,10 @@
 import { Injectable} from '@angular/core';
 
 @Injectable()
-export class UserAuthService {
-    count = 0;
-
-    incrementCount(){
-        this.count++; 
-    }
+export class NewAuthService {
 
     getSomeMsg(){
-        return "Hi.. I'm UserAuthService.";
+        return "Hi.. I'm NewAuthService.";
     }
 
     getUserName(): string {
@@ -35,7 +30,7 @@ export class UserAuthService {
     setUserId(userId) {
         localStorage.setItem('userId', userId);
     }
-
+    
     isLoggedIn() {
         if ( this.getUserName() && this.getUserEmail() && this.getUserId() ) {
             return true;

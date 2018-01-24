@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
     `
     <h2 class="main-page">Main Page Component</h2>
     <a [routerLink]="['another']">Go to Another Page</a>
-    <b>{{_userAuthService.getSomeMsg()}}</b>
+    <br>
+    <h3>Current Count is: {{ _userAuthService.count }}</h3>
+    <button (click)="increment()">Increment Counter on main page</button>
     `,
     styles: [
         `.main-page:hover {
@@ -25,6 +27,10 @@ export class MainPageComponent{
     _userAuthService: UserAuthService;
     constructor(private userAuthService: UserAuthService){
         this._userAuthService = userAuthService;
+    }
+
+    increment(){
+        this._userAuthService.incrementCount();
     }
 
 
