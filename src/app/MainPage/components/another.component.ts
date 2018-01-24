@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+
+import { Component, SkipSelf } from '@angular/core';
 import { UserAuthService } from '../../shared-contents/services/user-auth.service';
 
 @Component({
@@ -24,12 +25,13 @@ import { UserAuthService } from '../../shared-contents/services/user-auth.servic
             background-color : #fff000;
         }
         `
-    ]
+    ],
+    providers: [UserAuthService]
 })
 export class AnotherComponent{
    
     _userAuthService: UserAuthService;
-    constructor(private userAuthService: UserAuthService){
+    constructor(@SkipSelf() private userAuthService: UserAuthService){
         this._userAuthService = userAuthService;
     }
 

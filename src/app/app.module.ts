@@ -38,8 +38,7 @@ import { UserAuthService } from './shared-contents/services/user-auth.service';
   ],
   exports: [AppCommonModule],
   providers: [
-    AppLoaderService,
-    UserAuthService
+    AppLoaderService
   ],
   entryComponents: [
     AppLoaderComponent,

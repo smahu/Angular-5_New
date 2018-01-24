@@ -20,7 +20,8 @@ import { Component } from '@angular/core';
         }
         
         `
-    ]
+    ],
+    providers: [UserAuthService]
 })
 export class MainPageComponent{
 
