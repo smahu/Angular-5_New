@@ -26,7 +26,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.routerSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
-        this.appLoader.open({}, CustomLoaderComponent);
+        this.appLoader.open( CustomLoaderComponent);
       } else if (
         event instanceof NavigationEnd ||
         event instanceof NavigationCancel
@@ -40,7 +40,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     this.routerSubscription.unsubscribe();
   }
   showModal() {
-    this.appLoader.open({}, MatSpinner);
+    this.appLoader.open( MatSpinner);
     this.appLoader.delete();
   }
 }
