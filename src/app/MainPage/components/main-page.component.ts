@@ -4,7 +4,7 @@ import { AuthService } from '../../shared-contents/services/auth.service';
 
 @Component({
     selector: 'main-page',
-    template: 
+    template:
     `
     <h2 class="main-page">Main Page Component</h2>
     <a [routerLink]="['another']">Go to Another Page</a>
@@ -37,4 +37,3 @@ export class MainPageComponent{
 }
 
 
-}
