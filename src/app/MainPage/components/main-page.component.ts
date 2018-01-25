@@ -1,5 +1,6 @@
-import { UserAuthService } from './../../shared-contents/services/user-auth.service';
+
 import { Component } from '@angular/core';
+import { AuthService } from '../../shared-contents/services/auth.service';
 
 @Component({
     selector: 'main-page',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
     <h2 class="main-page">Main Page Component</h2>
     <a [routerLink]="['another']">Go to Another Page</a>
     <br>
-    <h3>Current Count is: {{ _userAuthService.count }}</h3>
+    <h3>Current Count is: {{ _authService.count }}</h3>
     <button (click)="increment()">Increment Counter on main page</button>
     `,
     styles: [
@@ -20,19 +21,20 @@ import { Component } from '@angular/core';
         }
         
         `
-    ],
-    providers: [UserAuthService]
+    ]
 })
 export class MainPageComponent{
 
-    _userAuthService: UserAuthService;
-    constructor(private userAuthService: UserAuthService){
-        this._userAuthService = userAuthService;
+    _authService: AuthService;
+    constructor(private authService: AuthService){
+        this._authService = authService;
     }
 
+
     increment(){
-        this._userAuthService.incrementCount();
+        this._authService.incrementCount();
     }
+}
 
 
 }

@@ -1,37 +1,44 @@
 import { Injectable} from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Injectable()
-export class NewAuthService {
+export class NewAuthService extends AuthService {
 
-    getSomeMsg(){
-        return "Hi.. I'm NewAuthService.";
+    count = 0;
+
+    incrementCount(){
+        this.count += 2; // increment by 2 
+    }
+
+    getSomeMsg(): string{
+        return "Hi.. I'm NewAuthService. I increment double..";
     }
 
     getUserName(): string {
-        return localStorage.getItem('userName');
+        return sessionStorage.getItem('userName');
     }
 
     getUserEmail(): string {
-        return localStorage.getItem('userEmail');
+        return sessionStorage.getItem('userEmail');
     }
 
     getUserId(): string {
-        return localStorage.getItem('userId');
+        return sessionStorage.getItem('userId');
     }
 
-    setUserName(userName) {
-        localStorage.setItem('userName', userName);
+    setUserName(userName): void {
+        sessionStorage.setItem('userName', userName);
     }
 
-    setUserEmail(userEmail) {
-        localStorage.setItem('userEmail', userEmail);
+    setUserEmail(userEmail): void {
+        sessionStorage.setItem('userEmail', userEmail);
     }
 
-    setUserId(userId) {
-        localStorage.setItem('userId', userId);
+    setUserId(userId): void {
+        sessionStorage.setItem('userId', userId);
     }
     
-    isLoggedIn() {
+    isLoggedIn(): boolean {
         if ( this.getUserName() && this.getUserEmail() && this.getUserId() ) {
             return true;
         }

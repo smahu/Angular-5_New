@@ -13,6 +13,7 @@ import {
 import { AppLoaderComponent } from "./shared-contents/components/app-loader/app-loader.component";
 import { CustomLoaderComponent } from "./shared-contents/components/custom-css-loader/custom-loader.component";
 import { MatSpinner } from "@angular/material";
+import { AuthService } from "./shared-contents/services/auth.service";
 
 @Component({
   selector: "app-root",
@@ -20,11 +21,14 @@ import { MatSpinner } from "@angular/material";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
-  routerSubscription;
-  constructor(private appLoader: AppLoaderService, private router: Router) {}
+  _routerSubscription;
+  _authService: AuthService;
+  constructor(private appLoader: AppLoaderService, private router: Router, private authService: AuthService) {
+    this._authService = authService;
+  }
 
   ngAfterViewInit() {
-    this.routerSubscription = this.router.events.subscribe(event => {
+    this._routerSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.appLoader.open( CustomLoaderComponent);
       } else if (
@@ -37,7 +41,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.routerSubscription.unsubscribe();
+    this._routerSubscription.unsubscribe();
   }
   showModal() {
     this.appLoader.open( MatSpinner);

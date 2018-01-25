@@ -1,15 +1,16 @@
 import { Injectable} from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Injectable()
-export class UserAuthService {
+export class UserAuthService extends AuthService {
     count = 0;
 
     incrementCount(){
         this.count++; 
     }
 
-    getSomeMsg(){
-        return "Hi.. I'm UserAuthService.";
+    getSomeMsg(): string{
+        return "Hi.. I'm UserAuthService. I increment step-wise.";
     }
 
     getUserName(): string {
@@ -24,23 +25,23 @@ export class UserAuthService {
         return localStorage.getItem('userId');
     }
 
-    setUserName(userName) {
+    setUserName(userName): void {
         localStorage.setItem('userName', userName);
     }
 
-    setUserEmail(userEmail) {
+    setUserEmail(userEmail): void {
         localStorage.setItem('userEmail', userEmail);
     }
 
-    setUserId(userId) {
+    setUserId(userId): void {
         localStorage.setItem('userId', userId);
     }
-
-    isLoggedIn() {
+    
+    isLoggedIn(): boolean {
         if ( this.getUserName() && this.getUserEmail() && this.getUserId() ) {
             return true;
         }
         return false;
     }
-
+    
 }

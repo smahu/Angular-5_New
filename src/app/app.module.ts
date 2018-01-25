@@ -18,6 +18,8 @@ import {MatProgressSpinnerModule, MatDialogModule, MatDialog} from '@angular/mat
 import { OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 import { CustomLoaderComponent } from './shared-contents/components/custom-css-loader/custom-loader.component';
 import { UserAuthService } from './shared-contents/services/user-auth.service';
+import { NewAuthService } from './shared-contents/services/new-auth.service';
+import { AuthService } from './shared-contents/services/auth.service';
 
 
 @NgModule({
@@ -38,7 +40,10 @@ import { UserAuthService } from './shared-contents/services/user-auth.service';
   ],
   exports: [AppCommonModule],
   providers: [
-    AppLoaderService
+    AppLoaderService,
+      { provide:  AuthService, useClass: UserAuthService},
+     // { provide:  AuthService, useClass: NewAuthService} 
+
   ],
   entryComponents: [
     AppLoaderComponent,
